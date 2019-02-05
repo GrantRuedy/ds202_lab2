@@ -1,0 +1,58 @@
+---
+title: "team.Rmd"
+author: "Grant Ruedy and Andrew Sundberg"
+date: "2/5/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1. What is the overall number of chocolate bars rated?
+```{r}
+choco <- read.csv("https://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
+head(choco)
+str(choco)
+```
+
+There are 1852 chocolate bars being rated.
+
+
+2. How does the number of ratings depend on the year? Draw a bar chart of the number of reports.
+
+```{r}
+plot(choco$Review.Date, choco$Rating)
+x <- table(choco$Rating)
+barplot(x, xlab= 'Number of Reports', ylab='Rating')
+```
+
+By looking at the scatterplot of ratings and review date (year), there appears to be no relationship between the two variables.
+
+
+3.How do ratings compare across different company locations?
+
+```{r}
+summary(choco)
+
+France <- choco[choco$Company.Location =='France',]
+USA <- choco[choco$Company.Location =='U.S.A.',]
+Canada <-choco[choco$Company.Location =='Canada',]
+
+a <-table(France$Rating)
+b <-table(USA$Rating)
+c <- table(Canada$Rating)
+
+barplot(a, xlab= 'Ratings for France', ylab='# of Ratings')
+barplot(b, xlab= 'Ratings For USA', ylab='# of Ratings')
+barplot(c, xlab= 'Ratings for Canada', ylab='# of Ratings')
+
+summary(France)
+summary(USA)
+summary(Canada)
+
+```
+
+Looking at the summary statisitcs for each country, France has an average score of 3.253  
+USA has an average rating of 3.162, and Canada has an average rating of 3.312.  
+According tho this, ratings in France are higher on average, while ratings in the USA are lowest on average.  This can also be seen by looking at the bar graph for each country.
