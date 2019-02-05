@@ -1,0 +1,39 @@
+---
+title: "Individual 2"
+author: "Andrew Sundberg"
+date: "February 5, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lab 2
+
+```{r}
+choco <- read.csv("https://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
+head(choco)
+```
+
+1.
+
+```{r}
+hist(choco$Rating)
+```
+
+The histogram looks like it is approximately normal centered around a rating of 3.  
+
+2.
+```{r}
+plot(choco$Cocoa.Pct, choco$Rating, xlab = 'Cocoa Percentage', ylab = 'Rating')
+rating1 = choco[choco$Rating == 1,]
+rating2 = choco[choco$Rating == 2,]
+rating3 = choco[choco$Rating == 3,]
+rating4 = choco[choco$Rating == 4,]
+rating5 = choco[choco$Rating == 5,]
+boxplot(rating1$Cocoa.Pct, rating2$Cocoa.Pct, rating3$Cocoa.Pct, rating4$Cocoa.Pct, rating5$Cocoa.Pct, xlab = 'Rating', ylab = 'Cocoa Percentage')
+```
+
+
+Ratings do not depend on cocoa percentage in the chocolate bar because the means are all very similar.  There is no linear trend in the scatterplot.
