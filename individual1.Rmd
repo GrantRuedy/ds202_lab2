@@ -1,0 +1,32 @@
+---
+title: "individual1"
+author: "Grant Ruedy"
+date: "2/5/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+choco <- read.csv("https://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
+head(choco)
+```
+
+How are ratings distributed?
+```{r}
+hist(choco$Rating)
+boxplot(choco$Rating, plot=FALSE)$out
+```
+The shape appears to be normally distributed, and there doesnt appear to be any  
+obvious outliers. Looking at the boxplot, there appears to be 51 outliers.
+
+
+Do ratings depend on the cacao percentage of a chocolate bar?
+```{r}
+plot(choco$Cocoa.Pct, choco$Rating)
+```
+
+Based on the scatterplot between cacao percentage and ratings, there is no  
+relationship between these variables. This concludes that ratings do not depend on cacao percentage. 
