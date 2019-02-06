@@ -56,3 +56,18 @@ summary(Canada)
 Looking at the summary statisitcs for each country, France has an average score of 3.253  
 USA has an average rating of 3.162, and Canada has an average rating of 3.312.  
 According tho this, ratings in France are higher on average, while ratings in the USA are lowest on average.  This can also be seen by looking at the bar graph for each country.
+
+
+4. Is there a difference in ratings between criollo and trinitario beans?
+
+5.
+```{r}
+cri = choco[choco$Bean.Type =='Criollo',]
+trin = choco[choco$Bean.Type == 'Trinitario',]
+summary(cri)
+summary(trin)
+boxplot(cri$Rating, trin$Rating)
+```
+
+Boxplot one represents criollo beans and boxplot two represents trinitario beans.  As you can see, their means are approximately the same.  Criollo beans have a mean of 3.24 and Trinitario beans have a mean of 3.245.  With the exception of a few outliers, the two boxplots look itentical.  Therefore, the ratings do not differ between the beans.
+
